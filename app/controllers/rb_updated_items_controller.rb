@@ -14,7 +14,7 @@ class RbUpdatedItemsController < RbApplicationController
 
     latest_updates = []
     if only.include? :stories
-      @items[:stories] = Story.find_all_updated_since(params[:since], @project.id)
+      @items[:stories] = Story.find_all_updated_since(params[:since], @project)
       if @items[:stories].length > 0
         latest_updates << @items[:stories].sort{ |a,b| a.updated_on <=> b.updated_on }.last
       end

@@ -80,7 +80,7 @@ def story_position(story)
   p2 = story.rank
   p1.should == p2
 
-  Story.at_rank(story.project_id, story.fixed_version_id, p1).id.should == story.id
+  Story.at_rank(story.project, story.fixed_version_id, p1).id.should == story.id
   return p1
 end
 

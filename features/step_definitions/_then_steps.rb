@@ -74,7 +74,7 @@ end
 
 Then /^the (\d+)(?:st|nd|rd|th) story in (.+) should be (.+)$/ do |position, backlog, subject|
   sprint = (backlog == 'the product backlog' ? nil : Version.find_by_name(backlog).id)
-  story = Story.at_rank(@project.id, sprint, position.to_i)
+  story = Story.at_rank(@project, sprint, position.to_i)
   story.should_not be_nil
   story.subject.should == subject
 end
